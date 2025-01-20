@@ -13,7 +13,7 @@ const navItems = [
 
 const Header = () => {
     return (
-        <main className='md:py-5 md:px-10 py-4 px-2 flex items-center justify-between fixed top-0 w-full shadow-lg shadow-gray-200 z-50 bg-white'>
+        <main className='md:py-5 md:px-10 py-4 px-2 flex items-center justify-between fixed top-0 w-full shadow-lg z-50 bg-white'>
             <Image src={'/images/logo.png'} alt='Logo' width={400} height={100} className='hidden' />
             <Image src={'/images/logo.png'} alt='Logo' width={200} height={100} />
             <div className='md:flex items-center gap-5 hidden'>
