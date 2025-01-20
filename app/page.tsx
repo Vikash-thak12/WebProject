@@ -1,12 +1,13 @@
-import Header from '@/components/Header'
+import About from '@/components/About'
 import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>
-      <Header />
-      <h1>This is Home page</h1>
-    </div>
+    <main>
+      <div className='mt-20'>
+        <About />
+      </div>
+    </main>
   )
 }
 
