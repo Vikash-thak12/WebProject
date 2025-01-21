@@ -1,5 +1,6 @@
 import About from '@/components/About'
-import NumberTickerDemo from '@/components/NumberTickerDemo'
+import CarouselDemo from '@/components/CarouselDemo'
+// import NumberTickerDemo from '@/components/NumberTickerDemo'
 import React from 'react'
 
 const HomePage = () => {
@@ -8,6 +9,9 @@ const HomePage = () => {
       <div className='mt-20'>
         <About />
         {/* <NumberTickerDemo /> */}
+        <CarouselDemo />
+        <div>
+        </div>
       </div>
     </main>
   )
