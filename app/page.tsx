@@ -8,6 +8,7 @@ const HomePage = () => {
       <div className='mt-20'>
         <About />
         <CarouselDemo />
+        {/* <NumberTickerDemo /> */}
       </div>
     </main>
   )
