@@ -19,7 +19,7 @@ const Header = () => {
             <div className='md:flex items-center gap-5 hidden'>
                 {navItems.map((item) => (
                     <Link key={item.id} href={item.link} className='relative group py-1'>
-                        <span className='font-bold text-xl'>{item.name}</span>
+                        <span className='font-bold text-xl text-black'>{item.name}</span>
                         <span className='absolute left-0 bottom-0 w-0 h-1 bg-red-500 group-hover:w-full transition-all'></span>
                     </Link>
 
