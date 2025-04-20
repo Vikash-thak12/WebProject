@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import Link from "next/link";
+import { LineShadowText } from "./magicui/line-shadow-text";
 
 const Hero = () => {
   const fadeInVariants = {
@@ -38,8 +40,11 @@ const Hero = () => {
               variants={fadeInVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
-              Building <span className="gradient-text">Stronger</span> Futures
-              With Precast Excellence
+              Building <span className="gradient-text text-7xl">Stronger</span>{" "}
+              Building
+              <LineShadowText className="italic ml-3 text-7xl">
+              Faster
+              </LineShadowText>
             </motion.h1>
 
             <motion.p
@@ -60,12 +65,16 @@ const Hero = () => {
               variants={fadeInVariants}
               className="flex flex-wrap gap-4"
             >
-              <Button className="gradient-bg-1 text-white rounded-full px-8 py-6 shadow-md hover:shadow-lg">
-                Explore Products
-              </Button>
-              <Button className="bg-white text-gray-800 rounded-full px-8 py-6 shadow-sm border border-gray-200 hover:shadow">
-                Contact Us
-              </Button>
+              <Link href={"/products"}>
+                <Button className="gradient-bg-1 text-white rounded-full px-8 py-6 shadow-md hover:shadow-lg">
+                  Explore Products
+                </Button>
+              </Link>
+              <Link href={"/contact"}>
+                <Button className="bg-white text-gray-800 rounded-full px-8 py-6 shadow-sm border border-gray-200 hover:shadow">
+                  Contact Us
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -102,15 +111,15 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative z-10 ml-auto w-full max-w-lg">
+            <div className="relative z-10 ml-auto">
               <Image
                 src="/images/main.jpg"
                 alt="Tirupati Precast"
                 width={600}
-                height={500}
-                className="rounded-2xl shadow-2xl"
+                height={400}
+                className="rounded-2xl shadow-2xl object-cover"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+              <div className="absolute -bottom-12 -left-6 bg-white p-4 rounded-lg shadow-lg">
                 <div className="flex items-center gap-3">
                   <div className="gradient-bg-1 rounded-full p-2">
                     <svg

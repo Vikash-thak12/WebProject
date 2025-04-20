@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
+import toast from "react-hot-toast";
 
 const navItems = [
   { id: 1, name: "Home", link: "/" },
@@ -106,6 +107,12 @@ const Header = () => {
             ))}
 
             <motion.button
+              onClick={() => {
+                toast.success(
+                  "Please fill out the form to get a quote or contact us."
+                );
+                redirect("/contact");
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="gradient-bg-1 text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg transition-all"

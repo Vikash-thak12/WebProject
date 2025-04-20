@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Progressbar } from "@/components/Progressbar";
 
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
+
 const ProductsPage = () => {
   const mainRef = useRef<HTMLElement | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -409,11 +412,16 @@ const ProductsPage = () => {
               variants={fadeInVariants}
               className="flex flex-wrap justify-center gap-4"
             >
-              <Button className="bg-white text-purple-700 rounded-full px-8 py-6 text-lg font-medium shadow-lg hover:bg-gray-100">
+              <Button
+                onClick={() => {
+                  toast.success(
+                    "Please fill out the form to get a quote or contact us."
+                  );
+                  redirect("/contact");
+                }}
+                className="bg-white text-purple-700 rounded-full px-8 py-6 text-lg font-medium shadow-lg hover:bg-gray-100"
+              >
                 Request a Quote
-              </Button>
-              <Button className="bg-transparent border-2 border-white text-white rounded-full px-8 py-6 text-lg font-medium hover:bg-white/10">
-                Download Catalog
               </Button>
             </motion.div>
           </motion.div>
