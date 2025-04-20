@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { contactLinks } from "@/constants";
+import { Progressbar } from "@/components/Progressbar";
 
 const ContactPage = () => {
+  const mainRef = useRef<HTMLElement | null>(null);
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -52,7 +54,8 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="pt-20 overflow-hidden">
+    <main ref={mainRef} className="pt-20 overflow-hidden">
+      <Progressbar target={mainRef} />
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-purple-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
@@ -72,8 +75,8 @@ const ContactPage = () => {
               variants={fadeInUpVariants}
               className="text-lg text-gray-600 mb-8"
             >
-              Have questions about our precast concrete solutions? We`&apos;re here to
-              help with expert advice and personalized service.
+              Have questions about our precast concrete solutions? We&apos;re
+              here to help with expert advice and personalized service.
             </motion.p>
 
             {/* Decorative elements */}
@@ -290,7 +293,7 @@ const ContactPage = () => {
                       id="phone"
                       name="phone"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 99XXX XXXXX"
                     />
                   </div>
 
@@ -321,7 +324,7 @@ const ContactPage = () => {
                     <textarea
                       id="message"
                       name="message"
-                      rows={5}
+                      rows={8}
                       required
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                       placeholder="Tell us about your project or inquiry..."
@@ -374,11 +377,9 @@ const ContactPage = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUpVariants}
-            className="relative rounded-xl overflow-hidden shadow-lg h-[700px]"
+            className="relative rounded-xl overflow-hidden shadow-lg h-[700px] "
           >
-            {/* Map iframe - Replace with actual Google Maps embed code */}
             <div className="absolute inset-0  bg-gray-200 flex items-center justify-center">
-              {/* This is a placeholder for the actual map. In production, replace with Google Maps iframe */}
               <div className="text-center p-8">
                 <Image
                   src="/map.png"
@@ -386,24 +387,31 @@ const ContactPage = () => {
                   width={1200}
                   height={600}
                   className="object-cover w-full h-full rounded-xl"
-                  onError={(e) => {
-                    // Fallback if image doesn't exist
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    target.src = "/images/1.jpg"; // Use existing image as fallback
-                  }}
                 />
-                <Link
-                  href={"https://maps.app.goo.gl/RMMszxZdo4YJkHbJA"}
-                  className="bg-white p-4 rounded-lg shadow-md absolute bottom-8 left-8 max-w-xs cursor-pointer hover:text-purple-600 transition-all"
-                >
-                  <h3 className="font-bold">Tirupati Precast</h3>
-                  <p className="text-sm text-gray-600">
-                    Click here for directions
-                  </p>
-                </Link>
               </div>
             </div>
+            <motion.div
+              variants={fadeInRightVariants}
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 2.5,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-0 left-0 w-fit right-0 p-6 z-10 flex justify-start"
+            >
+              <Link
+                href="https://maps.app.goo.gl/RMMszxZdo4YJkHbJA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/90 backdrop-blur-md px-6 py-4 rounded-xl shadow-xl max-w-sm cursor-pointer transition-all hover:text-purple-600 hover:shadow-2xl"
+              >
+                <h3 className="text-lg font-bold">Tirupati Precast</h3>
+                <p className="text-sm text-gray-600">
+                  Click here for directions
+                </p>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

@@ -87,7 +87,7 @@ const About = () => {
                             variants={fadeInUpVariants}
                             className="text-gray-600 mb-8 leading-relaxed"
                         >
-                            Our state-of-the-art machinery allows us to bring to you absolutely the best quality of products as well as great services, all at reasonable prices. We collaborate across multiple disciplines to deliver first-class solutions for customers while ensuring we carry on growing and adapting to the market`&apos;s evolving needs.
+                            Our state-of-the-art machinery allows us to bring to you absolutely the best quality of products as well as great services, all at reasonable prices. We collaborate across multiple disciplines to deliver first-class solutions for customers while ensuring we carry on growing and adapting to the market&apos;s evolving needs.
                         </motion.p>
                         
                         <motion.div 

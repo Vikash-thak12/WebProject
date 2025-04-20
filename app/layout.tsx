@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "TiruPati Precast",
-  description: "Website showing all the works of tirupati precast",
+  description: "Best Precast Concrete Manufacturer in India",
 };
 
 export default function RootLayout({

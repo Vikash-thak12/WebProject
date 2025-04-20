@@ -78,7 +78,7 @@ const Header = () => {
             </motion.div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 hover:text-blue-500">
             {navItems.map((item) => (
               <motion.div
                 key={item.id}
@@ -87,7 +87,7 @@ const Header = () => {
               >
                 <Link
                   href={item.link}
-                  className={`relative font-medium text-base transition-colors hover:text-blue-500 ${
+                  className={`relative font-medium text-base transition-colors  ${
                     pathname.includes(item.link) && item.link !== "/"
                       ? "text-purple-700 font-semibold"
                       : "text-gray-800 hover:text-primary"

@@ -314,7 +314,7 @@ const ProjectsPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
+      <section className="py-16 md:py-24 border border-gray-200 m-12 shadow-lg rounded-lg bg-gradient-to-b from-purple-50 to-white">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <motion.div
             initial="hidden"
@@ -332,7 +332,7 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-lg mb-8 max-w-2xl mx-auto"
             >
-              Let`&apos;s discuss how our precast concrete solutions can bring your
+              Let&apos;s discuss how our precast concrete solutions can bring your
               vision to life with quality, efficiency, and innovation.
             </motion.p>
             <motion.div

@@ -1,10 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Progressbar } from "@/components/Progressbar";
 
 const ProductsPage = () => {
+  const mainRef = useRef<HTMLElement | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
@@ -155,7 +157,9 @@ const ProductsPage = () => {
   };
 
   return (
-    <main className="pt-20 overflow-hidden">
+    <main ref={mainRef} className="pt-20 overflow-hidden">
+      <Progressbar target={mainRef} />
+
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-purple-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
@@ -379,7 +383,7 @@ const ProductsPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
+      <section className="py-16 md:py-24 border border-gray-200 m-12 shadow-lg rounded-lg bg-gradient-to-b from-purple-50 to-white">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <motion.div
             initial="hidden"

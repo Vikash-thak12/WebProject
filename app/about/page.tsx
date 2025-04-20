@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CircleUser, MapPin } from "lucide-react";
 import Link from "next/link";
+import { Progressbar } from "@/components/Progressbar";
 
 const AboutPage = () => {
+  const mainRef = useRef<HTMLElement | null>(null);
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -45,7 +47,8 @@ const AboutPage = () => {
   };
 
   return (
-    <main className="pt-20 overflow-hidden">
+    <main ref={mainRef} className="pt-20 overflow-hidden">
+      <Progressbar target={mainRef} />
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-purple-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
@@ -115,11 +118,11 @@ const AboutPage = () => {
               </p>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Through the decades, we`&apos;ve remained committed to our founding
-                principles of quality, innovation, and customer satisfaction.
-                Our journey has been marked by continuous improvements in
-                technology, processes, and expertise, allowing us to stay at the
-                forefront of the industry.
+                Through the decades, we&apos;ve remained committed to our
+                founding principles of quality, innovation, and customer
+                satisfaction. Our journey has been marked by continuous
+                improvements in technology, processes, and expertise, allowing
+                us to stay at the forefront of the industry.
               </p>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -227,7 +230,69 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Team */}
+      {/* Companies List */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUpVariants}
+              className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
+            >
+              <span className="relative z-10">Our Partners</span>
+              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpVariants}
+              className="text-gray-600 max-w-2xl mx-auto"
+            >
+              We are proud to collaborate with some of the most reputable
+              companies in the industry.
+            </motion.p>
+          </motion.div>
+
+          <div className="relative overflow-hidden">
+            <div className="flex gap-8 px-6 animate-marquee">
+              {Array.from({ length: 14 }, (_, i) => (
+                <div
+                  key={`logo${i + 1}`}
+                  className="flex-shrink-0 w-52 h-32 bg-white rounded-lg shadow-lg flex items-center justify-center hover:scale-110 transition-transform mx-4 group relative"
+                >
+                  <Image
+                    src={`/images/logo${i + 1}.jpg`}
+                    alt={`Company Logo ${i + 1}`}
+                    width={120}
+                    height={120}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <style jsx>{`
+          .animate-marquee {
+            display: flex;
+            animation: marquee 20s linear infinite;
+          }
+
+          @keyframes marquee {
+            0% {
+              transform: translateX(0%);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* Branches Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <motion.div
