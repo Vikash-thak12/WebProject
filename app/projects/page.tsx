@@ -332,7 +332,7 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-lg mb-8 max-w-2xl mx-auto"
             >
-              Let's discuss how our precast concrete solutions can bring your
+              Let`&apos;s discuss how our precast concrete solutions can bring your
               vision to life with quality, efficiency, and innovation.
             </motion.p>
             <motion.div

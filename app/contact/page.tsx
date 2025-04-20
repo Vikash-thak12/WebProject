@@ -72,7 +72,7 @@ const ContactPage = () => {
               variants={fadeInUpVariants}
               className="text-lg text-gray-600 mb-8"
             >
-              Have questions about our precast concrete solutions? We're here to
+              Have questions about our precast concrete solutions? We`&apos;re here to
               help with expert advice and personalized service.
             </motion.p>
 

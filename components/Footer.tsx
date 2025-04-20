@@ -64,7 +64,7 @@ const Footer = () => {
               construction projects of all scales.
             </p>
             <div className="flex space-x-4">
-              {contactLinks.map((social, index) => (
+              {contactLinks.map((social) => (
                 <motion.div
                   key={social.name}
                   whileHover={{ y: -5, scale: 1.1 }}

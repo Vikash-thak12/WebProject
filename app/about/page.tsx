@@ -115,7 +115,7 @@ const AboutPage = () => {
               </p>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Through the decades, we've remained committed to our founding
+                Through the decades, we`&apos;ve remained committed to our founding
                 principles of quality, innovation, and customer satisfaction.
                 Our journey has been marked by continuous improvements in
                 technology, processes, and expertise, allowing us to stay at the
