@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { featuredProjects, recentProjects } from "@/constants";
 
 const ProjectsPage = () => {
   const fadeInUpVariants = {
@@ -42,68 +43,6 @@ const ProjectsPage = () => {
     },
   };
 
-  // Project data
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "Modern Office Complex",
-      category: "Commercial",
-      description: "A state-of-the-art office complex featuring precast concrete facades and structural elements, creating a modern and efficient workspace environment.",
-      image: "/images/1.jpg",
-      completion: "2023",
-      client: "Techwave Solutions",
-    },
-    {
-      id: 2,
-      title: "Highway Infrastructure Project",
-      category: "Infrastructure",
-      description: "Major highway expansion with precast concrete barriers, sound walls, and drainage systems that significantly improved traffic flow and safety.",
-      image: "/images/2.jpg",
-      completion: "2022",
-      client: "State Highway Authority",
-    },
-    {
-      id: 3,
-      title: "Residential Tower",
-      category: "Residential",
-      description: "Multi-story residential development utilizing precast concrete panels for faster construction, enhanced durability, and improved energy efficiency.",
-      image: "/images/3.jpg",
-      completion: "2021",
-      client: "Urban Living Developers",
-    },
-  ];
-
-  const recentProjects = [
-    {
-      id: 4,
-      title: "School Building Expansion",
-      category: "Educational",
-      description: "Fast-track expansion of educational facilities using precast concrete solutions to minimize disruption to school operations.",
-      image: "/images/4.jpg",
-    },
-    {
-      id: 5,
-      title: "Shopping Mall Renovation",
-      category: "Commercial",
-      description: "Major renovation and expansion of shopping center with custom precast facades and structural elements.",
-      image: "/images/5.jpg",
-    },
-    {
-      id: 6,
-      title: "Water Treatment Facility",
-      category: "Industrial",
-      description: "Specialized precast concrete tanks and structures for water treatment application, designed for optimal durability and chemical resistance.",
-      image: "/images/6.jpg",
-    },
-    {
-      id: 7,
-      title: "Public Park Amenities",
-      category: "Civic",
-      description: "Precast concrete seating, planters, and decorative elements for public park enhancement project.",
-      image: "/images/7.jpg",
-    },
-  ];
-
   return (
     <main className="pt-20 overflow-hidden">
       {/* Hero Section */}
@@ -125,7 +64,9 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-lg text-gray-600 mb-8"
             >
-              Discover our portfolio of successful precast concrete projects across commercial, residential, infrastructure, and industrial sectors.
+              Discover our portfolio of successful precast concrete projects
+              across commercial, residential, infrastructure, and industrial
+              sectors.
             </motion.p>
 
             {/* Decorative elements */}
@@ -156,7 +97,8 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              Highlighting our most innovative and impactful precast concrete projects that showcase our expertise and craftsmanship.
+              Highlighting our most innovative and impactful precast concrete
+              projects that showcase our expertise and craftsmanship.
             </motion.p>
           </motion.div>
 
@@ -172,11 +114,17 @@ const ProjectsPage = () => {
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                <motion.div 
-                  variants={index % 2 === 0 ? fadeInLeftVariants : fadeInRightVariants}
+                <motion.div
+                  variants={
+                    index % 2 === 0 ? fadeInLeftVariants : fadeInRightVariants
+                  }
                   className="relative"
                 >
-                  <div className={`absolute ${index % 2 === 0 ? '-right-5' : '-left-5'} -bottom-5 w-full h-full border-4 border-purple-200 rounded-xl -z-10 translate-x-4 translate-y-4`}></div>
+                  <div
+                    className={`absolute ${
+                      index % 2 === 0 ? "-right-5" : "-left-5"
+                    } -bottom-5 w-full h-full border-4 border-purple-200 rounded-xl -z-10 translate-x-4 translate-y-4`}
+                  ></div>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -186,7 +134,11 @@ const ProjectsPage = () => {
                   />
                 </motion.div>
 
-                <motion.div variants={index % 2 === 0 ? fadeInRightVariants : fadeInLeftVariants}>
+                <motion.div
+                  variants={
+                    index % 2 === 0 ? fadeInRightVariants : fadeInLeftVariants
+                  }
+                >
                   <span className="text-sm font-semibold text-purple-600 mb-2 block">
                     {project.category}
                   </span>
@@ -198,17 +150,21 @@ const ProjectsPage = () => {
                   </p>
                   <div className="flex flex-wrap gap-6 mb-6">
                     <div>
-                      <span className="text-sm font-medium text-gray-500 block">Client</span>
+                      <span className="text-sm font-medium text-gray-500 block">
+                        Client
+                      </span>
                       <span className="font-semibold">{project.client}</span>
                     </div>
                     <div>
-                      <span className="text-sm font-medium text-gray-500 block">Completed</span>
-                      <span className="font-semibold">{project.completion}</span>
+                      <span className="text-sm font-medium text-gray-500 block">
+                        Completed
+                      </span>
+                      <span className="font-semibold">
+                        {project.completion}
+                      </span>
                     </div>
                   </div>
-                  <Button 
-                    className="rounded-full px-6 py-2"
-                  >
+                  <Button className="rounded-full px-6 py-2">
                     View Details
                   </Button>
                 </motion.div>
@@ -239,7 +195,8 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              A selection of our recent work across various sectors and applications.
+              A selection of our recent work across various sectors and
+              applications.
             </motion.p>
           </motion.div>
 
@@ -271,9 +228,9 @@ const ProjectsPage = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
+                  <Button
+                    variant="outline"
+                    size="sm"
                     className="rounded-full group-hover:bg-purple-600 group-hover:text-white transition-colors"
                   >
                     View Project
@@ -306,7 +263,8 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              We specialize in precast concrete solutions across various sectors, delivering excellence in every project.
+              We specialize in precast concrete solutions across various
+              sectors, delivering excellence in every project.
             </motion.p>
           </motion.div>
 
@@ -315,22 +273,26 @@ const ProjectsPage = () => {
               {
                 title: "Commercial",
                 icon: "🏢",
-                description: "Office buildings, retail centers, and corporate facilities designed for both functionality and aesthetic appeal.",
+                description:
+                  "Office buildings, retail centers, and corporate facilities designed for both functionality and aesthetic appeal.",
               },
               {
                 title: "Residential",
                 icon: "🏘️",
-                description: "Multi-family housing, apartment complexes, and custom residential projects with efficiency and quality.",
+                description:
+                  "Multi-family housing, apartment complexes, and custom residential projects with efficiency and quality.",
               },
               {
                 title: "Infrastructure",
                 icon: "🌉",
-                description: "Bridges, highways, retaining walls, and public infrastructure built to last generations.",
+                description:
+                  "Bridges, highways, retaining walls, and public infrastructure built to last generations.",
               },
               {
                 title: "Industrial",
                 icon: "🏭",
-                description: "Manufacturing facilities, warehouses, and specialized industrial structures designed for operational efficiency.",
+                description:
+                  "Manufacturing facilities, warehouses, and specialized industrial structures designed for operational efficiency.",
               },
             ].map((category, index) => (
               <motion.div
@@ -342,9 +304,7 @@ const ProjectsPage = () => {
                 custom={index}
                 className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-100"
               >
-                <div className="text-4xl mb-4">
-                  {category.icon}
-                </div>
+                <div className="text-4xl mb-4">{category.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{category.title}</h3>
                 <p className="text-gray-600">{category.description}</p>
               </motion.div>
@@ -372,7 +332,8 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-lg mb-8 max-w-2xl mx-auto"
             >
-              Let's discuss how our precast concrete solutions can bring your vision to life with quality, efficiency, and innovation.
+              Let's discuss how our precast concrete solutions can bring your
+              vision to life with quality, efficiency, and innovation.
             </motion.p>
             <motion.div
               variants={fadeInUpVariants}

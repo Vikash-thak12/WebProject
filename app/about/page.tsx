@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { CircleUser, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const AboutPage = () => {
   const fadeInUpVariants = {
@@ -63,9 +65,9 @@ const AboutPage = () => {
               variants={fadeInUpVariants}
               className="text-lg text-gray-600 mb-8"
             >
-              Four decades of excellence in precast concrete solutions,
-              delivering quality, innovation, and reliability to construction
-              projects across the region.
+              Decades of excellence in precast concrete solutions, delivering
+              quality, innovation, and reliability to construction projects
+              across the region.
             </motion.p>
 
             {/* Decorative elements */}
@@ -103,11 +105,13 @@ const AboutPage = () => {
               </h2>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Founded in 1982, Tirupati Precast began as a small concrete
-                manufacturing unit with a vision to revolutionize the
-                construction industry through high-quality precast solutions.
-                What started as a modest operation has now grown into one of the
-                region's most trusted names in precast concrete.
+                Tirupati Precast has been a trusted name in the concrete
+                industry for over 11 years, known for strength, quality, and top
+                service. They offer a range of products including boundary
+                walls, manhole covers, and asbestos posts for commercial,
+                residential, and industrial use. With advanced machinery and a
+                modern plant, they continuously innovate and commit to
+                delivering the highest quality products without compromise.
               </p>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -237,73 +241,69 @@ const AboutPage = () => {
               variants={fadeInUpVariants}
               className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
             >
-              <span className="relative z-10">Our Leadership Team</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+              <span className="relative z-10">Our Branches</span>
+              <span className="absolute bottom-1 left-0 w-full h-2 bg-purple-200 -z-10"></span>
             </motion.h2>
             <motion.p
               variants={fadeInUpVariants}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              Meet the dedicated professionals who lead our company with vision,
-              expertise, and passion.
+              Our dedicated team of professionals is committed to delivering the
+              highest quality precast concrete solutions, ensuring that each
+              project meets our rigorous standards of excellence.
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Rajesh Sharma",
-                position: "Managing Director",
-                image: "/images/6.jpg",
-                description:
-                  "With over 25 years of experience in the precast industry, Rajesh leads our company with strategic vision and operational excellence.",
-              },
-              {
-                name: "Priya Patel",
-                position: "Technical Director",
-                image: "/images/7.jpg",
-                description:
-                  "Priya brings 18 years of engineering expertise, ensuring our production processes and quality standards remain cutting-edge.",
-              },
-              {
-                name: "Vikram Singh",
-                position: "Sales Director",
-                image: "/images/8.jpg",
-                description:
-                  "Vikram's 15 years in construction sales helps us understand client needs and deliver solutions that exceed expectations.",
-              },
-            ].map((member, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeInUpVariants}
-                custom={index}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
-              >
-                <div className="relative h-72">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
+          <div className="flex items-center justify-center w-full">
+            {/* Branch List */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInLeftVariants}
+              className="w-full max-w-6xl group relative"
+            >
+              <div className="relative w-full h-[500px]">
+                <Image
+                  src={"/images/branch1.png"}
+                  alt="Branch Image"
+                  layout="fill"
+                  className="rounded-lg shadow-lg object-contain"
+                />
+
+                {/* Hover Overlay with States */}
+                <div className="absolute inset-0 flex flex-wrap justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md bg-white/40 rounded-lg flex-col">
+                  {/* State List */}
+                  <span className="gradient-text text-3xl font-semibold">
+                    Branch List
+                  </span>
+
+                  {[
+                    "KARNATAKA",
+                    "TELANGANA",
+                    "ANDHRA PRADESH",
+                    "MAHARASHTRA",
+                    "ODISHA",
+                    "TAMIL NADU",
+                    "GUJARAT",
+                  ].map((state) => (
+                    <div
+                      key={state}
+                      className="flex items-center gap-2 px-4 py-2 bg-white/90 text-black rounded-full shadow-md font-semibold text-sm"
+                    >
+                      <MapPin className="w-4 h-4 text-red-500" />
+                      {state}
+                    </div>
+                  ))}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-purple-600 mb-4">{member.position}</p>
-                  <p className="text-gray-600">{member.description}</p>
-                </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
+      <section className="py-16 md:py-24 border border-gray-200 m-12 shadow-lg rounded-lg bg-gradient-to-b from-purple-50 to-white ">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <motion.div
             initial="hidden"
@@ -329,9 +329,11 @@ const AboutPage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button className="bg-white text-purple-700 rounded-full px-8 py-6 text-lg font-medium shadow-lg hover:bg-gray-100">
-                Contact Us Now
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-white text-purple-700 rounded-full px-8 py-6 text-lg  shadow-lg hover:bg-gray-100 gap-4">
+                  <CircleUser /> Contact Us Now
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
