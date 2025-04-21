@@ -277,13 +277,15 @@ const ProductsPage = () => {
                     </ul>
                   </div>
 
-                  <div className="flex justify-between items-center">
-                    <Button className="gradient-bg-1 text-white rounded-full shadow-md hover:shadow-lg">
-                      View Details
-                    </Button>
+                  <div className="flex justify-end items-center">
                     <Button
-                      variant="outline"
-                      className="border-purple-500 text-purple-600 hover:bg-purple-50"
+                      className="gradient-bg-1 text-white rounded-full shadow-md hover:shadow-lg"
+                      onClick={() => {
+                        toast.success(
+                          "Please fill out the form to get a quote or contact us."
+                        );
+                        redirect("/contact");
+                      }}
                     >
                       Request Quote
                     </Button>
@@ -307,7 +309,7 @@ const ProductsPage = () => {
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 relative inline-block">
                 <span className="relative z-10">Custom Solutions</span>
-                <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+                <span className="absolute bottom-1 left-0 w-full h-2.5 bg-purple-200"></span>
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Beyond our standard product range, we specialize in creating

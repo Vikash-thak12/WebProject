@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
 
 interface ProductCardProps {
   title: string;
@@ -26,13 +28,13 @@ const ProductCard = ({
       whileHover={{ y: -8 }}
       className="group"
     >
-      <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+      <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
         <div className="relative h-64 overflow-hidden">
           <Image
             src={imageSrc}
             alt={title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="absolute bottom-0 left-0 w-full p-4">
@@ -48,7 +50,7 @@ const ProductCard = ({
           </div>
         </div>
         <div className="p-5">
-          <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-xl mb-2 group-hover:text-purple-600 transition-colors duration-300">
             {title}
           </h3>
           <p className="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -60,7 +62,7 @@ const ProductCard = ({
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-primary transform group-hover:translate-x-1 transition-transform"
+              className="h-5 w-5 text-purple-600 transform group-hover:translate-x-1 transition-transform duration-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -80,18 +82,20 @@ const ProductCard = ({
 };
 
 const OurProduct = () => {
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
   const products = [
     {
       title: "Precast Concrete Walls",
       description:
         "Our premium precast concrete walls are manufactured with precision in our state-of-the-art facility, ensuring highest quality and strength for any construction project.",
       imageSrc: "/images/9.jpg",
-    },
-    {
-      title: "Concrete Pavers",
-      description:
-        "Durable and aesthetically pleasing concrete pavers for pathways, driveways, and outdoor spaces that withstand heavy traffic and harsh weather conditions.",
-      imageSrc: "/images/10.jpg",
     },
     {
       title: "Structural Elements",
@@ -118,10 +122,13 @@ const OurProduct = () => {
             viewport={{ once: true }}
             className="inline-block"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+            <motion.h2
+              variants={fadeInUpVariants}
+              className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
+            >
               <span className="relative z-10">Our Products</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
-            </h2>
+              <span className="absolute bottom-1 left-0 w-full h-2 bg-purple-200"></span>
+            </motion.h2>
           </motion.div>
 
           <motion.p
@@ -138,10 +145,10 @@ const OurProduct = () => {
 
           {/* Decorative elements */}
           <div className="absolute -right-16 top-0 w-36 h-36 rounded-full border-4 border-purple-100 opacity-20 animate-spin-slow"></div>
-          <div className="absolute -left-20 -bottom-10 w-24 h-24 rounded-full bg-indigo-100 opacity-30 animate-float"></div>
+          <div className="absolute -left-20 -bottom-10 w-24 h-24 rounded-full bg-purple-100 opacity-30 animate-float"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {products.map((product, index) => (
             <ProductCard
               key={index}
@@ -160,7 +167,13 @@ const OurProduct = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Button className="gradient-bg-1 text-white rounded-full px-8 py-6 shadow-md hover:shadow-lg">
+          <Button
+            className="gradient-bg-1 text-white rounded-full px-8 py-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+            onClick={() => {
+              toast.success("Welcome to our product page!👍");
+              redirect("/products");
+            }}
+          >
             View All Products
           </Button>
         </motion.div>

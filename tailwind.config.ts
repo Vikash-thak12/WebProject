@@ -11,11 +11,17 @@ export default {
     extend: {
       animation: {
         "line-shadow": "line-shadow 15s linear infinite",
+        "spin-slow": "spin 8s linear infinite",
+        float: "float 6s ease-in-out infinite",
       },
       keyframes: {
         "line-shadow": {
           "0%": { backgroundPosition: "0 0" },
           "100%": { backgroundPosition: "100% -100%" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
         },
       },
       colors: {

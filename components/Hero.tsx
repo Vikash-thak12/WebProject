@@ -54,7 +54,7 @@ const Hero = () => {
               variants={fadeInVariants}
               className="text-lg text-gray-600 mb-8 max-w-lg"
             >
-              Four decades of expertise in providing high-quality precast
+              Decades of expertise in providing high-quality precast
               concrete solutions for construction projects of all sizes.
             </motion.p>
 
@@ -84,14 +84,14 @@ const Hero = () => {
               variants={fadeInVariants}
               className="mt-12 flex items-center gap-6"
             >
-              <div className="flex -space-x-4">
-                <div className="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center text-purple-700 font-bold shadow-sm">
+              <div className="flex -space-x-3">
+                <div className="w-14 h-14 rounded-full bg-purple-200 flex items-center justify-center text-purple-700 font-bold shadow-sm">
                   40+
                 </div>
-                <div className="w-12 h-12 rounded-full bg-indigo-200 flex items-center justify-center text-indigo-700 font-bold shadow-sm">
-                  500+
+                <div className="w-14 h-14 rounded-full bg-indigo-200 flex items-center justify-center text-indigo-700 font-bold shadow-sm">
+                  1500+
                 </div>
-                <div className="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-700 font-bold shadow-sm">
+                <div className="w-14 h-14 rounded-full bg-pink-200 flex items-center justify-center text-pink-700 font-bold shadow-sm">
                   100%
                 </div>
               </div>
@@ -100,7 +100,7 @@ const Hero = () => {
                   Trusted by hundreds of clients
                 </span>
                 <br />
-                Over 500 projects completed with 100% satisfaction
+                Over 1500 projects completed with 100% satisfaction
               </p>
             </motion.div>
           </div>

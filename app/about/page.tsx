@@ -151,7 +151,7 @@ const AboutPage = () => {
               className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
             >
               <span className="relative z-10">Our Mission & Vision</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+              <span className="absolute bottom-1 left-0 w-full h-2 bg-purple-200 "></span>
             </motion.h2>
           </motion.div>
 
@@ -245,7 +245,7 @@ const AboutPage = () => {
               className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
             >
               <span className="relative z-10">Our Partners</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+              <span className="absolute bottom-1 left-0 w-full h-2.5 bg-purple-200 "></span>
             </motion.h2>
             <motion.p
               variants={fadeInUpVariants}

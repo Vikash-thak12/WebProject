@@ -46,13 +46,6 @@ const ContactPage = () => {
     },
   };
 
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add form submission logic here
-    alert("Thank you for your message. We will get back to you soon!");
-  };
-
   return (
     <main ref={mainRef} className="pt-20 overflow-hidden">
       <Progressbar target={mainRef} />
@@ -67,7 +60,7 @@ const ContactPage = () => {
           >
             <motion.h1
               variants={fadeInUpVariants}
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-bold mb-6 relative inline-block"
             >
               Get In <span className="gradient-text">Touch</span>
             </motion.h1>
@@ -245,7 +238,7 @@ const ContactPage = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   Send Us a Message
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label
@@ -361,7 +354,7 @@ const ContactPage = () => {
               className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
             >
               <span className="relative z-10">Our Location</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200"></span>
             </motion.h2>
             <motion.p
               variants={fadeInUpVariants}

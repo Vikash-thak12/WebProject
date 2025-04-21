@@ -56,7 +56,7 @@ const ProjectsPage = () => {
           >
             <motion.h1
               variants={fadeInUpVariants}
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-bold mb-6 relative inline-block"
             >
               Our <span className="gradient-text">Projects</span>
             </motion.h1>
@@ -184,12 +184,13 @@ const ProjectsPage = () => {
             variants={staggerContainer}
             className="text-center mb-16"
           >
+
             <motion.h2
               variants={fadeInUpVariants}
               className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
             >
               <span className="relative z-10">Recent Projects</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
+              <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 opacity-60 "></span>
             </motion.h2>
             <motion.p
               variants={fadeInUpVariants}
@@ -259,6 +260,7 @@ const ProjectsPage = () => {
               <span className="relative z-10">Our Expertise</span>
               <span className="absolute bottom-1 left-0 w-full h-3 bg-purple-200 -z-10"></span>
             </motion.h2>
+
             <motion.p
               variants={fadeInUpVariants}
               className="text-gray-600 max-w-2xl mx-auto"
@@ -332,8 +334,8 @@ const ProjectsPage = () => {
               variants={fadeInUpVariants}
               className="text-lg mb-8 max-w-2xl mx-auto"
             >
-              Let&apos;s discuss how our precast concrete solutions can bring your
-              vision to life with quality, efficiency, and innovation.
+              Let&apos;s discuss how our precast concrete solutions can bring
+              your vision to life with quality, efficiency, and innovation.
             </motion.p>
             <motion.div
               variants={fadeInUpVariants}

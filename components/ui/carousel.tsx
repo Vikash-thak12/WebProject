@@ -50,7 +50,7 @@ export function Carousel({ slides }: CarouselProps) {
         });
       }, 5000);
     }
-    
+
     return () => {
       if (autoPlayRef.current) {
         clearInterval(autoPlayRef.current);
@@ -69,7 +69,7 @@ export function Carousel({ slides }: CarouselProps) {
       const timer = setTimeout(() => {
         setIsAutoPlaying(true);
       }, 10000);
-      
+
       return () => clearTimeout(timer);
     }
   }, [isAutoPlaying]);
@@ -127,7 +127,7 @@ export function Carousel({ slides }: CarouselProps) {
   };
 
   return (
-    <div 
+    <div
       className="relative h-[80vh] max-h-[700px] w-full overflow-hidden bg-gradient-to-r from-purple-900/5 to-indigo-900/10"
       onMouseEnter={pauseAutoPlay}
       onTouchStart={handleTouchStart}
@@ -150,10 +150,11 @@ export function Carousel({ slides }: CarouselProps) {
               alt={slides[current].title}
               fill
               className="object-cover"
+              loading="eager"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-            
+
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center px-4 md:px-0 max-w-3xl">
                 <motion.h2
@@ -164,7 +165,7 @@ export function Carousel({ slides }: CarouselProps) {
                 >
                   {slides[current].title}
                 </motion.h2>
-                
+
                 <motion.button
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -181,7 +182,7 @@ export function Carousel({ slides }: CarouselProps) {
           </div>
         </motion.div>
       </AnimatePresence>
-      
+
       {/* Previous/Next buttons */}
       <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
         <motion.button
@@ -191,11 +192,22 @@ export function Carousel({ slides }: CarouselProps) {
           onClick={handlePrevious}
           className="glass-effect rounded-full p-3 text-white shadow-md pointer-events-auto"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
         </motion.button>
-        
+
         <motion.button
           variants={buttonVariants}
           whileHover="hover"
@@ -203,12 +215,23 @@ export function Carousel({ slides }: CarouselProps) {
           onClick={handleNext}
           className="glass-effect rounded-full p-3 text-white shadow-md pointer-events-auto"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </motion.button>
       </div>
-      
+
       {/* Pagination dots */}
       <div className="absolute bottom-6 left-0 right-0">
         <div className="flex justify-center space-x-2">
