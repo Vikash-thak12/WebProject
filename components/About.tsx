@@ -84,8 +84,8 @@ const About = () => {
               className="text-gray-600 mb-6 leading-relaxed"
             >
               Tirupati Precast Concrete works is synonym to strength, Quality
-              and best service. We have provided this to be true for over four
-              decades now. With our well-equipped and revolutionary plant, we
+              and best service. We have provided this to be true for over one
+              decade now. With our well-equipped and revolutionary plant, we
               have managed to become the frontiers in our industry and products
               the best in the business.
             </motion.p>
